@@ -1,0 +1,14 @@
+name: Search
+actions:
+
+  - operationId: getSearch
+    summary: Search entities
+    method: GET
+    path: /search
+    parameters:
+    - name: q
+      type: string
+      description: The search query
+    - name: only
+      type: array
+      description: Limit to search to specific entities
