@@ -22,4 +22,4 @@ actions:
     - name: url
       type: string
       in: body
-      description: Unique slug for the piece of content
+      description: The URL of the content being shared
