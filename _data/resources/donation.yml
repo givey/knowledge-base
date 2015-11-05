@@ -22,6 +22,75 @@ actions:
       in: query
       type: string
       description: GiveyTag or ID of a User
+    breakdown:
+      meta:
+      - name: total_amounts
+        description: The object that encapsulates each currency amount
+        type: Object
+      - name: total_amounts.GBP
+        description: Sum amount of donations in this currency
+        type: Integer
+      - name: total_amounts.USD
+        description: Sum amount of donations in this currency
+        type: Integer
+      - name: count
+        description: The total count of donations
+        type: Integer
+      - name: pages
+        description: The amount of paginated pages
+        type: Integer
+      donations:
+      - name: id
+        description: The ID of the donation
+        type: Integer
+      - name: activity_id
+        description: The internal Givey ID
+        type: String
+      - name: summary
+        description: The string representation of this donation
+        type: String
+      - name: summary_html
+        description: The summary with HTML
+        type: String
+      - name: currency
+        description: The currency of this donation
+        type: String
+      - name: amount
+        description: The amount in pence of this donation
+        type: Integer
+      - name: matched_amount
+        description: The amount in pence that a business matched this donation
+        type: Integer
+      - name: giftaid_amount
+        description: The amount in pence of giftaid applied to this donation
+        type: Integer
+      - name: charity_id
+        description: The ID of the charity
+        type: Integer
+      - name: user_id
+        description: The ID of the user
+        type: Integer
+      - name: content
+        description: The object which encapsulates the attached content
+        type: Object
+      - name: content.id
+        description: The ID of the content
+        type: String
+      - name: content.url
+        description: The URL of the content
+        type: String
+      - name: content.title
+        description: The title of the content
+        type: String
+      - name: content.image
+        description: The image attached to the content
+        type: String
+      - name: created_at
+        description: The date the donation was created
+        type: String
+      - name: updated_at
+        description: The date the donation was updated
+        type: String
     responses:
       200:
         description: Valid Donations were found

@@ -61,6 +61,26 @@ layout: default
           %small.text-muted This action does not accept any parameters
           {% endif %}
 
+          {% if action.breakdown %}
+          %h5 Response Properties
+          %hr
+          {% for key in action.breakdown %}
+          %h6 {{ key[0] | capitalize }}
+          %table.table
+            %thead
+              %tr
+                %th Parameter
+                %th Type
+                %th Description
+            {% for parameter in key[1] %}
+            %tr
+              %td{width: 200} {{ parameter.name }}
+              %td.text-muted{width: 100} {{ parameter.type }}
+              %td {{ parameter.description }}
+            {% endfor %}
+          {% endfor %}
+          {% endif %}
+
           {% if action.responses[200].examples['application/json'] %}
           %h6 Example Response
           %pre
