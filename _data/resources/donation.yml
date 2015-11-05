@@ -71,24 +71,24 @@ actions:
     method: POST
     path: /donations
     parameters:
-    - name: "payment[amount]"
+    - name: "donation[payment][amount]"
       type: integer
       description: The amount of the donation
-    - name: "charity[id]"
+    - name: "donation[charity][id]"
       type: string
       description: The ID or Givey Tag of a charity
-    - name: "story[comment]"
+    - name: "donation[story][comment]"
       type: string
       description: The comment body of the donation
-    - name: "content[id]"
+    - name: "donation[content][id]"
       type: string
       description: The ID or Unique slug of a piece of content
-    - name: "share[title]"
+    - name: "donation[share][title]"
       type: string
       description: The title of the donation
-    - name: "share[inspired_by]"
+    - name: "donation[share][inspired_by]"
       type: integer
       description: The ID of a donation
-    - name: "share[tags]"
+    - name: "donation[share][tags]"
       type: array/string
       description: An array or comma seperated list of string tags
