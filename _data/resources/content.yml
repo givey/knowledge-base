@@ -15,11 +15,15 @@ actions:
     method: POST
     path: /contents
     parameters:
-    - name: slug
+    - name: slug (optional)
       type: string
       in: body
       description: Unique slug for the piece of content
     - name: url
       type: string
       in: body
-      description: The URL of the content being shared
+      description: The URL of the content being shared. Required if no media_image specified
+    - name: media_image (optional)
+      type: MultipartEntity
+      in: body
+      description: The image you wish to upload. It must be an image
