@@ -1,0 +1,35 @@
+name: Stories
+actions:
+
+  - operationId: getStories
+    summary: Get Stories
+    method: GET
+    path: /stories
+    parameters:
+    - name: donation_id
+      type: string
+      description: The ID of a donation
+
+  - operationId: getStory
+    summary: Get a Story
+    method: GET
+    path: /stories/:id
+    parameters:
+    - name: id
+      type: string
+      description: The ID of a story
+
+  - operationId: createStory
+    summary: Create a Story
+    method: POST
+    path: /stories
+    parameters:
+    - name: 'story[user_id]'
+      type: string
+      description: The ID of a user
+    - name: 'story[donation_id]'
+      type: string
+      description: The ID of a donation
+    - name: 'story[content_text]'
+      type: string
+      description: The main body of the story
