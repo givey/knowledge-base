@@ -10,6 +10,15 @@ actions:
       type: string
       description: GiveyTag or ID of a User
 
+  - operationId: readFollowers
+    summary: Get the users a user is following
+    method: GET
+    path: /follows/:id
+    parameters:
+    - name: id
+      type: string
+      description: GiveyTag or ID of a User
+
   - operationId: createFollow
     summary: Create a follow for a user
     method: POST
