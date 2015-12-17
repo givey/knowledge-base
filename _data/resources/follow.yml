@@ -2,28 +2,37 @@ name: Follows
 actions:
 
   - operationId: readFollows
-    summary: Get the followers of a user
+    summary: Get the followers of an entity
     method: GET
     path: /follows
     parameters:
-    - name: user_id
+    - name: givey_tag
       type: string
-      description: GiveyTag or ID of a User
+      description: 'GiveyTag of an entity (user, business, charity)'
 
   - operationId: readFollowers
-    summary: Get the users a user is following
+    summary: Get the entities an entity is following
     method: GET
     path: /follows/:id
     parameters:
     - name: id
       type: string
-      description: GiveyTag or ID of a User
+      description: 'GiveyTag of an entity (user, business, charity)'
 
   - operationId: createFollow
-    summary: Create a follow for a user
+    summary: Create a follow for an entity
     method: POST
     path: /follows
     parameters:
-    - name: user_id
+    - name: givey_tag
       type: string
-      description: GiveyTag or ID of a User
+      description: 'GiveyTag of an entity (user, business, charity)'
+
+  - operationId: destroyFollow
+    summary: Destroy a follow of an entity
+    method: DELETE
+    path: /follows
+    parameters:
+    - name: givey_tag
+      type: string
+      description: 'GiveyTag of an entity (user, business, charity)'
