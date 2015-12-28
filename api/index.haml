@@ -47,6 +47,7 @@ layout: default
           %h5.panel-title
             %a{href: "#resources-{{action.operationId}}", name: "resources-{{action.operationId}}"} {{action.method}} {{action.path}}
         .panel-body
+          %p.alert.alert-info {{ action.summary }}
           %h6 Parameters
           {% if action.parameters %}
           %table.table
