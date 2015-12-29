@@ -150,3 +150,18 @@ li > a {
     text-transform: capitalize;
   }
 }
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.response-example {
+  background: #f7f7f7;
+}
+
+pre {
+  background: #fff;
+}

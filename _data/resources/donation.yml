@@ -2,7 +2,7 @@ name: Donations
 actions:
 
   - operationId: filterDonations
-    summary: Filter Donations
+    summary: Get a list of donations based on a filter
     method: GET
     path: /donations
     parameters:
@@ -10,27 +10,31 @@ actions:
       in: query
       type: string
       description: GiveyTag or ID of a Business
+      optional: true
     - name: charity_id
       in: query
       type: string
       description: GiveyTag or ID of a Charity
+      optional: true
     - name: content_id
       in: query
       type: string
       description: ID of a piece of content
+      optional: true
     - name: user_id
       in: query
       type: string
       description: GiveyTag or ID of a User
+      optional: true
     breakdown:
       meta:
       - name: total_amounts
         description: The object that encapsulates each currency amount
         type: Object
-      - name: total_amounts.GBP
+      - name: 'total_amounts[GBP]'
         description: Sum amount of donations in this currency
         type: Integer
-      - name: total_amounts.USD
+      - name: 'total_amounts[USD]'
         description: Sum amount of donations in this currency
         type: Integer
       - name: count
@@ -91,6 +95,12 @@ actions:
       - name: updated_at
         description: The date the donation was updated
         type: String
+    requests:
+      curl: |+
+        $ curl -G \
+        'https://api.givey.com/v3/donations' \
+        -d user_id=userone \
+        -d access_token=access_token
     responses:
       200:
         description: Valid Donations were found
@@ -127,13 +137,94 @@ actions:
         description: No Donations matched your query
 
   - operationId: getDonation
-    summary: Get a Donation
+    summary: Get a Donation by its ID
     method: GET
     path: /donations/:id
     parameters:
     - name: id
       type: string
       description: ID of a Donation
+    requests:
+      curl: |+
+        $ curl \
+        'https://api.givey.com/v3/donations/1234'
+    breakdown:
+      donations:
+      - name: id
+        description: The ID of the donation
+        type: Integer
+      - name: activity_id
+        description: The internal Givey ID
+        type: String
+      - name: summary
+        description: The string representation of this donation
+        type: String
+      - name: summary_html
+        description: The summary with HTML
+        type: String
+      - name: currency
+        description: The currency of this donation
+        type: String
+      - name: amount
+        description: The amount in pence of this donation
+        type: Integer
+      - name: matched_amount
+        description: The amount in pence that a business matched this donation
+        type: Integer
+      - name: giftaid_amount
+        description: The amount in pence of giftaid applied to this donation
+        type: Integer
+      - name: charity_id
+        description: The ID of the charity
+        type: Integer
+      - name: user_id
+        description: The ID of the user
+        type: Integer
+      - name: content
+        description: The object which encapsulates the attached content
+        type: Object
+      - name: content.id
+        description: The ID of the content
+        type: String
+      - name: content.url
+        description: The URL of the content
+        type: String
+      - name: content.title
+        description: The title of the content
+        type: String
+      - name: content.image
+        description: The image attached to the content
+        type: String
+      - name: created_at
+        description: The date the donation was created
+        type: String
+      - name: updated_at
+        description: The date the donation was updated
+        type: String
+    responses:
+      200:
+        description: Valid Donations were found
+        examples:
+          "application/json":
+            donations:
+            - id: 42645
+              activity_id: "MTQyNzc0NTczMk5ibTU"
+              summary: "Marc gave £1 to DogsTrust"
+              summary_html: "<a href='https://www.givey.com/marcqualie'>Marc</a> gave £1 to <a href='https://www.givey.com/dogstrust'>DogsTrust</a>"
+              currency: GBP
+              amount: 100
+              matched_amount: 100
+              giftaid_amount: 25
+              charity_id: 20
+              user_id: 1439
+              content:
+                id: "59d118ab"
+                url: "https://instagram.com/p/03S8QmE9Rc/"
+                title: Cosy Watson
+                image: https://res.cloudinary.com/givey/image/upload/v1428080937/media/59d118ab.jpg
+              paid_at: 2015-03-30T20:02:12.803Z
+              created_at: 2015-03-30T20:02:15.917Z
+              updated_at: 2015-03-30T20:02:15.917Z
 
   - operationId: createDonation
     summary: Create a Donation
@@ -148,16 +239,104 @@ actions:
       description: The ID or Givey Tag of a charity
     - name: "donation[story][comment]"
       type: string
+      optional: true
       description: The comment body of the donation
     - name: "donation[content][id]"
       type: string
       description: The ID or Unique slug of a piece of content
-    - name: "donation[share][title]"
+    - name: "donation[title]"
       type: string
       description: The title of the donation
     - name: "donation[share][inspired_by]"
       type: integer
       description: The ID of a donation
+      optional: true
     - name: "donation[share][tags]"
       type: array/string
       description: An array or comma seperated list of string tags
+      optional: true
+    requests:
+      curl: |+
+        $ curl  \
+        'https://api.givey.com/v3/donations' \
+        -d donation[payment][amount]=1 \
+        -d donation[charity][id]=dogstrust \
+        -d donation[content][id]=59d118ab \
+        -d donation[title]=Cosy%20Watson
+    breakdown:
+      donations:
+      - name: id
+        description: The ID of the donation
+        type: Integer
+      - name: activity_id
+        description: The internal Givey ID
+        type: String
+      - name: summary
+        description: The string representation of this donation
+        type: String
+      - name: summary_html
+        description: The summary with HTML
+        type: String
+      - name: currency
+        description: The currency of this donation
+        type: String
+      - name: amount
+        description: The amount in pence of this donation
+        type: Integer
+      - name: matched_amount
+        description: The amount in pence that a business matched this donation
+        type: Integer
+      - name: giftaid_amount
+        description: The amount in pence of giftaid applied to this donation
+        type: Integer
+      - name: charity_id
+        description: The ID of the charity
+        type: Integer
+      - name: user_id
+        description: The ID of the user
+        type: Integer
+      - name: content
+        description: The object which encapsulates the attached content
+        type: Object
+      - name: content.id
+        description: The ID of the content
+        type: String
+      - name: content.url
+        description: The URL of the content
+        type: String
+      - name: content.title
+        description: The title of the content
+        type: String
+      - name: content.image
+        description: The image attached to the content
+        type: String
+      - name: created_at
+        description: The date the donation was created
+        type: String
+      - name: updated_at
+        description: The date the donation was updated
+        type: String
+    responses:
+      200:
+        description: Valid Donations were found
+        examples:
+          "application/json":
+            donations:
+            - id: 42645
+              activity_id: "MTQyNzc0NTczMk5ibTU"
+              summary: "Marc gave £1 to DogsTrust"
+              summary_html: "<a href='https://www.givey.com/marcqualie'>Marc</a> gave £1 to <a href='https://www.givey.com/dogstrust'>DogsTrust</a>"
+              currency: GBP
+              amount: 100
+              matched_amount: 100
+              giftaid_amount: 25
+              charity_id: 20
+              user_id: 1439
+              content:
+                id: "59d118ab"
+                url: "https://instagram.com/p/03S8QmE9Rc/"
+                title: Cosy Watson
+                image: https://res.cloudinary.com/givey/image/upload/v1428080937/media/59d118ab.jpg
+              paid_at: 2015-03-30T20:02:12.803Z
+              created_at: 2015-03-30T20:02:15.917Z
+              updated_at: 2015-03-30T20:02:15.917Z

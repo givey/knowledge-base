@@ -2,22 +2,97 @@ name: Follows
 actions:
 
   - operationId: readFollows
-    summary: Get the followers of an entity
+    summary: 'Get the followers of a user, charity or business'
     method: GET
     path: /follows
     parameters:
     - name: givey_tag
       type: string
       description: 'GiveyTag of an entity (user, business, charity)'
+      required: true
+    requests:
+      curl: |+
+        $ curl -G \
+        'https://api.givey.com/v3/follows' \
+        -d givey_tag=userone
+    breakdown:
+      follows:
+      - name: id
+        description: The ID of the object
+        type: Integer
+      - name: follower_id
+        description: 'The ID of the user, business or charity'
+        type: Integer
+      - name: follower_type
+        description: The type of the follower
+        type: String
+      - name: followee_id
+        description: 'The ID of the user, business or charity'
+        type: Integer
+      - name: followee_type
+        description: The type of the followee
+        type: String
+    responses:
+      200:
+        examples:
+          "application/json":
+            meta:
+              limit: 10
+              count: 3
+              page: 1
+              pages: 1
+            follows:
+            - id: 1
+              follower_id: 1
+              follower_type: User
+              followee_id: 2
+              followee_type: User
 
   - operationId: readFollowers
-    summary: Get the entities an entity is following
+    summary: 'Get the users, businesses or charities an user, business or charity is following'
     method: GET
     path: /follows/:id
     parameters:
     - name: id
       type: string
-      description: 'GiveyTag of an entity (user, business, charity)'
+      description: 'GiveyTag of a user, business or charity'
+      required: true
+    requests:
+      curl: |+
+        $ curl \
+        'https://api.givey.com/v3/follows/userone'
+    breakdown:
+      follows:
+      - name: id
+        description: The ID of the object
+        type: Integer
+      - name: follower_id
+        description: 'The ID of the user, business or charity'
+        type: Integer
+      - name: follower_type
+        description: The type of the follower
+        type: String
+      - name: followee_id
+        description: 'The ID of the user, business or charity'
+        type: Integer
+      - name: followee_type
+        description: The type of the followee
+        type: String
+    responses:
+      200:
+        examples:
+          "application/json":
+            meta:
+              limit: 10
+              count: 3
+              page: 1
+              pages: 1
+            follows:
+            - id: 1
+              follower_id: 1
+              follower_type: User
+              followee_id: 2
+              followee_type: User
 
   - operationId: createFollow
     summary: Create a follow for an entity

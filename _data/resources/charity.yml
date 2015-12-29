@@ -2,27 +2,147 @@ name: Charities
 actions:
 
   - operationId: filterCharities
-    summary: Filter Charities
+    summary: Get a list of Charities
     description: All charities will be displayed unless a filter is provided. If no matches are found for a filter no charities will be returned
     method: GET
     path: /charities
     parameters:
     - name: ids
-      in: query
+      description: IDs of a charity
       type: array
-      items:
-        type: integer
-      description: Charity IDs
+      optional: true
     - name: business_id
-      in: query
-      type: string
       description: Business ID or GiveyTag
+      type: string|integer
+      optional: true
+    requests:
+      curl: |+
+        $ curl -G \
+        'https://api.givey.com/v3/charities'
+        -d ids[]=1
+        -d ids[]=givey_tag
+        -d business_id=3
+    breakdown:
+      charities:
+      - name: id
+        description: The ID of the charity
+        type: Integer
+      - name: givey_tag
+        description: The GiveyTag of the charity
+        type: String
+      - name: name
+        description: The name of the charity
+        type: String
+      - name: profile_url
+        description: The url for the charity profile on Givey
+        type: String
+      - name: description
+        description: The charity description
+        type: String
+      - name: avatar_url
+        description: The URL for the charity avatar
+        type: String
+      - name: hero_image_url
+        description: The URL for the charity hero image
+        type: String
+      - name: website_url
+        description: The URL for the charity website
+        type: String
+      - name: twitter_url
+        description: The URL for the charity's Twitter account
+        type: String
+      - name: facebook_url
+        description: The URL for the charity's Facebook account
+        type: String
+      - name: created_at
+        description: The date the business was created
+        type: DateTime
+      - name: updated_at
+        description: The date the business was last updated
+        type: DateTime
+    responses:
+      200:
+        examples:
+          "application/json":
+            charities:
+            - id: 1
+              givey_tag: dogstrust
+              name: Dogs Trust
+              profile_url: https://www.givey.com/dogstrust
+              description: Dogstrust on Givey!
+              avatar_url: https://res.cloudinary.com/givey/image/upload/default-charity.png
+              hero_image_url: https://res.cloudinary.com/givey/image/upload/default-charity.png
+              website_url: https://www.dogstrust.org.uk/
+              twitter_url: https://twitter.com/DogsTrust
+              facebook_url: https://www.facebook.com/DogsTrust
+              created_at: 2015-12-21T11:00:00.188Z
+              updated_at: 2015-12-21T11:00:00.188Z
 
   - operationId: getCharity
-    summary: Get a Charity
+    summary: Get a Charity by its ID
     method: GET
     path: /charities/:id
     parameters:
     - name: id
-      type: string
       description: GiveyTag or ID of the charity
+      type: string|integer
+      required: true
+    requests:
+      curl: |+
+        $ curl \
+        'https://api.givey.com/v3/charities/1'
+    breakdown:
+      charities:
+      - name: id
+        description: The ID of the charity
+        type: Integer
+      - name: givey_tag
+        description: The GiveyTag of the charity
+        type: String
+      - name: name
+        description: The name of the charity
+        type: String
+      - name: profile_url
+        description: The url for the charity profile on Givey
+        type: String
+      - name: description
+        description: The charity description
+        type: String
+      - name: avatar_url
+        description: The URL for the charity avatar
+        type: String
+      - name: hero_image_url
+        description: The URL for the charity hero image
+        type: String
+      - name: website_url
+        description: The URL for the charity website
+        type: String
+      - name: twitter_url
+        description: The URL for the charity's Twitter account
+        type: String
+      - name: facebook_url
+        description: The URL for the charity's Facebook account
+        type: String
+      - name: created_at
+        description: The date the business was created
+        type: DateTime
+      - name: updated_at
+        description: The date the business was last updated
+        type: DateTime
+    responses:
+      200:
+        examples:
+          "application/json":
+            charity:
+              id: 1
+              givey_tag: dogstrust
+              name: Dogs Trust
+              profile_url: https://www.givey.com/dogstrust
+              description: Dogstrust on Givey!
+              avatar_url: https://res.cloudinary.com/givey/image/upload/default-charity.png
+              hero_image_url: https://res.cloudinary.com/givey/image/upload/default-charity.png
+              website_url: https://www.dogstrust.org.uk/
+              twitter_url: https://twitter.com/DogsTrust
+              facebook_url: https://www.facebook.com/DogsTrust
+              created_at: 2015-12-21T11:00:00.188Z
+              updated_at: 2015-12-21T11:00:00.188Z
