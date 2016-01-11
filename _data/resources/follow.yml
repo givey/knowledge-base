@@ -106,8 +106,8 @@ actions:
   - operationId: destroyFollow
     summary: Destroy a follow of an entity
     method: DELETE
-    path: /follows
+    path: /follows/:id
     parameters:
-    - name: givey_tag
+    - name: id
       type: string
       description: 'GiveyTag of an entity (user, business, charity)'
