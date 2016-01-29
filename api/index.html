@@ -77,6 +77,46 @@ layout: default
       <p>
         All amounts returned are in pence, however, all amounts sent in requests are in whole pounds
       </p>
+
+      <h2>
+        Error Codes
+      </h2>
+      <div class="panel-body">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td width="200">
+                <code>
+                  Invalid Oauth Request
+                </code>
+              </td>
+              <td>
+                An access token must be supplied to access this resource
+              </td>
+            </tr>
+            <tr>
+              <td width="200">
+                <code>
+                  Access Denied
+                </code>
+              </td>
+              <td>
+                The provided access token does not have the required scope for this resource
+              </td>
+            </tr>
+            <tr>
+              <td width="200">
+                <code>
+                  Not found
+                </code>
+              </td>
+              <td>
+                The resource does not exist
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <h2>
         Resources
       </h2>
