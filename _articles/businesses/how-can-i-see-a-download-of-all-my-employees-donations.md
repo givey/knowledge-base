@@ -8,9 +8,10 @@ title: How can I see a download of all my employee's donations?
 layout: article
 permalink: "/articles/businesses/how-can-i-see-a-download-of-all-my-employees-donations/"
 ---
-If you are an Administrator for your Charity page on Givey;
+If you are the Owner or an Administrator for your Business on Givey;
 
-Simply click on your avatar in the top right of the screen,
-Click ‘Settings’,
-Click your charity name on the left-hand pane,
-Select ‘Donations’ to see a full breakdown of your donations.
+Log in and click the dropdown list in the top right or Givey.
+
+Find your Business name and click the cog icon to go to your Settings page.
+
+Select Donations from the list on the right to see a full breakdown of your donations.

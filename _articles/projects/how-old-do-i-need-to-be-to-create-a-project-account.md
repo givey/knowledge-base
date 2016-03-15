@@ -8,4 +8,5 @@ title: How old do I need to be to create a project account?
 layout: article
 permalink: "/articles/projects/how-old-do-i-need-to-be-to-create-a-project-account/"
 ---
-18 or over.
+
+You will need to be at least 18 years of age to create a Project on Givey.

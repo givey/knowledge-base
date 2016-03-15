@@ -8,4 +8,4 @@ title: How old do I need to be to create a charity account?
 layout: article
 permalink: "/articles/charities/how-old-do-i-need-to-be-to-create-a-charity-account/"
 ---
-18 years or over.
+You will need to be at least 18 years of age to create a Charity on Givey.

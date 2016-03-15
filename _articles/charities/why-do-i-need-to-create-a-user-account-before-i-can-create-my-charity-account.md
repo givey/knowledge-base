@@ -8,4 +8,4 @@ title: Why do I need to create a user account before I can create my charity acc
 layout: article
 permalink: "/articles/charities/why-do-i-need-to-create-a-user-account-before-i-can-create-my-charity-account/"
 ---
-Every charity needs an administrator to update and manage their Givey charity account, and this is done through linking a user account with the charity account.
+Every charity needs an owner to update and manage their Givey Charity account, and this is done through linking a user account with the charity account.

@@ -8,4 +8,4 @@ title: Are the bank details I have shared with you secure?
 layout: article
 permalink: "/articles/general/are-the-bank-details-i-have-shared-with-you-secure/"
 ---
-Yes; Stripe are PCI Compliant and your bank details are safe, you can find out more at: https://stripe.com/help/security
+Yes; Stripe are PCI Compliant and your bank details are safe, you can find out more at: <a href="https://stripe.com/help/security">https://stripe.com/docs/security</a>

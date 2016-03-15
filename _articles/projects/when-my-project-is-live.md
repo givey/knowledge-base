@@ -8,4 +8,4 @@ title: When my project is live...
 layout: article
 permalink: "/articles/projects/when-my-project-is-live/"
 ---
-When your project is up and running it can be searched for in our search bar, or found under the 'Projects' tab in Explore. Whatsmore, you can share yout project with the social media links on the project page to let your followers know where to support you!
+When your project is up and running it can be searched for in our search bar, or found under the 'Projects' tab in <a href="https://www.givey.com/explore">Explore</a>. What's more, you can share your project with the social media links on the project page to let your followers know where to support you!

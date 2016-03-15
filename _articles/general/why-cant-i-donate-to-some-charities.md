@@ -9,4 +9,5 @@ layout: article
 permalink: "/articles/general/why-cant-i-donate-to-some-charities/"
 ---
 If your favourite charity has not completed their payment migration details to our new independent system which is faster and more flexable, they will not be available to donate to and will show as ‘inactive’ until their details are updated.
-If you know anyone from the charity, or are from the charity yourself, just get in touch with us at support@givey.com to complete these and get the charity back up and running!
+
+If you know anyone from the charity, or are from the charity yourself, just get in touch with us at <a href="mailto:support@givey.com">support@givey.com</a> to complete these and get the charity back up and running!

@@ -8,4 +8,4 @@ title: Do you provide free trials?
 layout: article
 permalink: "/articles/businesses/do-you-provide-free-trials/"
 ---
-Yes; to sign up for a free trial, or if you’d like to find out a bit more about Givey for Business, or want to refer your employer to us, please contact sales@givey.com.
+Yes; to sign up for a free trial, or if you’d like to find out a bit more about Givey for Business, or want to refer your employer to us, please contact <a href="mailto:sales@givey.com">sales@givey.com</a>.
