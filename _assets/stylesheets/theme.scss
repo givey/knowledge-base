@@ -165,3 +165,59 @@ li > a {
 pre {
   background: #fff;
 }
+
+
+footer {
+  padding: 10px;
+  margin-top: 20px;
+
+  .top-row {
+    line-height: 14px;
+    margin-bottom: 8px;
+
+    a {
+      margin: 0 15px;
+      font-weight: bold;
+      color: #666;
+    }
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #ff1414;
+  }
+
+  .middle-row {
+    line-height: 12px;
+
+    a, span {
+      margin: 0 10px;
+      color: #666;
+    }
+  }
+
+  .bottom-row {
+    margin-top: 15px;
+
+    .fa {
+      margin: 0 5px;
+      font-size: 24px;
+    }
+
+    .fa-twitter {
+      color: #4099FF;
+    }
+
+    .fa-facebook-official {
+      color: #3b5998;
+    }
+
+    .fa-instagram {
+      color: #527ea8;
+    }
+
+    .fa-youtube-play {
+      color: #cd332d;
+    }
+  }
+}
