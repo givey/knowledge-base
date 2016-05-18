@@ -1,0 +1,33 @@
+<div class="logo-wrapper text-center panel panel-primary">
+  <div class="panel-heading">
+    <img src="https://givey.com/logo-white.png" />
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Resources
+      </h3>
+    </div>
+    <ul class="nav nav-stacked">
+      {% for resource in site.data.resources %}
+      <li>
+        <a data-toggle="collapse" href="#collapse-{{resource[0]}}" aria-expanded="false" aria-controls="collapseExample">
+          {{resource[1].name}}
+        </a>
+        <ul class="nav nav-stacked" id="collapse-{{resource[0]}}">
+          {% for action in resource[1].actions %}
+          <li>
+            <a href="#resources-{{action.operationId}}">
+              {{action.summary}}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

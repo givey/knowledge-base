@@ -1,0 +1,13 @@
+<h6>
+  Definition
+</h6>
+  {% highlight shell %}{{ action.method }} https://api.givey.com/v3{{ action.path }}{% endhighlight %}
+
+<h6>
+  Example Request
+</h6>
+{% if action.requests.curl %}
+  {% highlight shell %}{{ action.requests.curl }}{% endhighlight %}
+{% else %}
+  {% highlight text %}This action has no example requests yet{% endhighlight %}
+{% endif %}

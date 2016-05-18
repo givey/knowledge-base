@@ -1,0 +1,23 @@
+<h4>
+  <a href="#resources-{{action.operationId}}" name="resources-{{action.operationId}}">
+    {{action.summary}}
+  </a>
+</h4>
+<p>{{action.description}}</p>
+
+<h5>Arguments</h5>
+{% for param in action.parameters %}
+  <table class="table">
+    <td width="100" class="text-right">
+      <p><code>{{param.name}}</code></p>
+      <small class="text-muted">
+        {{param.type}}
+      </small>
+    </td>
+    <td>
+      {% if param.description %}
+        {{param.description}}
+      {% endif %}
+    </td>
+  </table>
+{% endfor %}
