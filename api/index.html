@@ -1,63 +1,22 @@
 ---
 title: API Documentation
-layout: default
+layout: api
 ---
-<div class="container-fluid">
+
+{% include api/sidebar.html %}
+
+<div class="body">
   <div class="row">
-    <div class="col-sm-3">
-      <div class="sidebar">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              Getting Started
-            </h3>
-          </div>
-          <ul class="list-group">
-            <a class="list-group-item" href="#developer-portal">
-              Developer Portal
-            </a>
-            <a class="list-group-item" href="#authentication">
-              Authentication
-            </a>
-            <a class="list-group-item" href="#accepting-donations">
-              Accepting Donations
-            </a>
-          </ul>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              Resources
-            </h3>
-          </div>
-          <ul class="nav nav-stacked">
-            {% for resource in site.data.resources %}
-            <li>
-              <a href="#resources-{{resource[0]}}">
-                {{resource[1].name}}
-              </a>
-              <ul class="nav nav-stacked">
-                {% for action in resource[1].actions %}
-                <li>
-                  <a href="#resources-{{action.operationId}}">
-                    {{action.method}} {{action.path}}
-                  </a>
-                </li>
-                {% endfor %}
-              </ul>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-9">
+    <div class="col-sm-5">
       <h2>
         Getting Started
       </h2>
       <hr />
       <p class="alert alert-warning">
         The API documentation is currently in a Beta state and is subject to change
+      </p>
+      <p>
+        The Givey API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors
       </p>
       <p>
         The Givey API conforms to the constraints of <a href="https://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank">REST</a>
@@ -77,7 +36,15 @@ layout: default
       <p>
         All amounts returned are in pence, however, all amounts sent in requests are in whole pounds
       </p>
-
+      <p>
+        There are currently no libraries for the Givey API but this is subject to change
+      </p>
+    </div>
+    <div class="col-sm-7 response-wrapper">
+      <h2>
+        API Endpoint
+      </h2>
+      <code>https://api.givey.com/v3</code>
       <h2>
         Error Codes
       </h2>
@@ -117,149 +84,52 @@ layout: default
           </tbody>
         </table>
       </div>
-      <h2>
-        Resources
-      </h2>
-      <hr />
-      {% for resource in site.data.resources %}
-      <h3>
-        <a href="#resources-{{resource[0]}}" name="resources-{{resource[0]}}">
-          {{resource[1].name}}
-        </a>
-      </h3>
-      {% for action in resource[1].actions %}
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h5 class="panel-title">
-            <a href="#resources-{{action.operationId}}" name="resources-{{action.operationId}}">
-              {{action.method}} {{action.path}}
-            </a>
-          </h5>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-6">
-              <p class="alert alert-info">
-                {{ action.summary }}
-              </p>
-              <h6>
-                Arguments
-              </h6>
-              {% if action.parameters %}
-              <table class="table">
-                <tbody>
-                {% for parameter in action.parameters %}
-                  <tr>
-                    <td width="200">
-                      <p>
-                        <code>
-                          {{parameter.name}}
-                        </code>
-                      </p>
-                      <small class="text-muted">
-                        {{ parameter.type | capitalize }}
-                        {% if parameter.optional %}
-                          <span>
-                            <label>
-                              (Optional)
-                            </label>
-                          </span>
-                        {% endif %}
-                        {% if parameter.required %}
-                          <span>
-                            <label>
-                              (Required)
-                            </label>
-                          </span>
-                        {% endif %}
-                      </small>
-                    </td>
-                    <td>
-                      {{ parameter.description }}
-                    </td>
-                  </tr>
-                {% endfor %}
-                </tbody>
-              </table>
-              {% else %}
-              <small class="text-muted">
-                This action does not accept any parameters
-              </small>
-              {% endif %}
-            </div>
-            <div class="col-md-6 response-example">
-              <h6>
-                Definition
-              </h6>
-                {% highlight shell %}{{ action.method }} https://api.givey.com/v3{{ action.path }}{% endhighlight %}
-
-              <h6>
-                Example Request
-              </h6>
-              {% if action.requests.curl %}
-                {% highlight shell %}{{ action.requests.curl }}{% endhighlight %}
-              {% else %}
-                {% highlight text %}This action has no example requests yet{% endhighlight %}
-              {% endif %}
-            </div>
-          </div>
-          <div class="row">
-            {% if action.breakdown %}
-            <div class="col-md-6">
-              <h5>
-                Response Properties
-              </h5>
-              <hr />
-              {% for key in action.breakdown %}
-              <h5>
-                {{ key[0] | capitalize }}
-              </h5>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>
-                      Parameter
-                    </th>
-                    <th>
-                      Description
-                    </th>
-                  </tr>
-                </thead>
-                {% for parameter in key[1] %}
-                <tr>
-                  <td width="200">
-                    <p>
-                      <code>
-                        {{parameter.name}}
-                      </code>
-                    </p>
-                    <small class="text-muted">
-                      {{ parameter.type }}
-                    </small>
-                  </td>
-                  <td>
-                    {{ parameter.description }}
-                  </td>
-                </tr>
-                {% endfor %}
-              </table>
-              {% endfor %}
-            </div>
-            {% endif %}
-
-            {% if action.responses[200].examples['application/json'] %}
-            <div class="col-md-6 response-example">
-              <h6>
-                Example Response
-              </h6>
-              {% highlight json %}{{ action.responses[200].examples['application/json'] | pretty_json }}{% endhighlight %}
-            </div>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-      {% endfor %}
     </div>
   </div>
+  {% for resource in site.data.resources %}
+    <div class="row">
+      <div class="col-sm-5">
+        <h3>
+          <a href="#resources-{{resource[0]}}" name="resources-{{resource[0]}}">
+            {{resource[1].name}}
+          </a>
+        </h3>
+
+        <h5>Attributes</h5>
+        {% for attr in resource[1].breakdown %}
+          <table class="table">
+            <td width="100" class="text-right">
+              <p><code>{{attr.name}}</code></p>
+              <small class="text-muted">
+                {{attr.type}}
+              </small>
+            </td>
+            <td>
+              {% if attr.description %}
+                {{attr.description}}
+              {% endif %}
+            </td>
+          </table>
+        {% endfor %}
+      </div>
+      <div class="col-sm-7 response-wrapper">
+        <h4>Example Response</h4>
+        {% for format in resource[1].example_response %}
+          {% highlight json %}{{ format[1] | pretty_json }}{% endhighlight %}
+        {% endfor %}
+      </div>
+    </div>
+
+    {% for action in resource[1].actions %}
+      <div class="row">
+        <div class="col-sm-5" style="padding-top: 60px;">
+          {% include api/methods.html %}
+        </div>
+
+        <div class="col-sm-7 response-wrapper" style="padding-top: 60px;">
+          {% include api/responses.html %}
+        </div>
+      </div>
+    {% endfor %}
+  {% endfor %}
 </div>
