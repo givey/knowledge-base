@@ -1,6 +1,24 @@
 name: Stories
-actions:
 
+breakdown:
+  - name: id
+    type: Integer
+  - name: content_text
+    type: String
+  - name: user_id
+    type: Integer
+  - name: donation_id
+    type: Integer
+
+example_response:
+  curl:
+    search:
+    - id: 1
+      content_text: Well done user one!
+      user_id: 2
+      donation_id: 1
+
+actions:
   - operationId: getStories
     summary: Get Stories
     method: GET
@@ -11,7 +29,7 @@ actions:
       description: The ID of a donation
 
   - operationId: getStory
-    summary: Get a Story
+    summary: Get Story
     method: GET
     path: /stories/:id
     parameters:
@@ -20,7 +38,7 @@ actions:
       description: The ID of a story
 
   - operationId: createStory
-    summary: Create a Story
+    summary: Create Story
     method: POST
     path: /stories
     parameters:

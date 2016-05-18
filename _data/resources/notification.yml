@@ -1,7 +1,48 @@
 name: Notifications
-actions:
 
+breakdown:
+  meta:
+    name: total
+    description: The object that encapsulates the notification counts
+    type: Object
+  notifications:
+  - name: id
+    type: Integer
+  - name: author
+    description: The object that encapsulates the notification author
+    type: Object
+  - name: link
+    description: The link to the notification on Givey
+    type: String
+  - name: content_text
+    description: The summary of the notification
+    type: String
+  - name: html
+    description: The HTML of the notification
+    type: String
+  - name: created_at
+    type: DateTime
+
+example_response:
+  curl:
+    meta:
+      total:
+        unread: 2
+        all: 7
+    notifications:
+    - id: 1
+      author:
+        givey_tag: userone
+        type: user
+        name: User One
+        avatar_url: https://res.cloudinary.com/givey/image/upload/default_user.png
+      link: https://www.givey.com
+      content_text: User one has made a donation to your fundraiser
+      html: <li class='notification' data-id='1'>\n<div class='row'>\n<div class='col-xs-2'>\n<div class='avatar-padder'>\n<div class=\"avatar avatar-tiny\"><a href=\"/userone\"><img class=\"avatars-userone\" width=\"32\" height=\"32\" src=\"https://res.cloudinary.com/givey/image/upload/h_32,w_32/default_user.png\" alt=\"Default user\" title=\"Default user\" /></a></div>\n</div>\n</div>\n<div class='col-xs-8'>\n<a href=\"/notifications/38858/mark_read\">User One has made a donation to your fundraiser\n</a></div>\n<div class='col-xs-2 text-center'>\n<div class='notification-date'>\n<date title=\"March 03, 2016 15:15\">3mo</date>\n</div>\n</div>\n</div>\n</li>\n
+      created_at: 2016-03-03T15:15:44.104Z
+
+actions:
   - operationId: getNotifications
-    summary: Get your notifications
+    summary: Get Notifications
     method: GET
     path: /notifications

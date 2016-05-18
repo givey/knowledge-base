@@ -1,8 +1,77 @@
 name: Users
-actions:
 
+breakdown:
+  - name: id
+    type: Integer
+  - name: givey_tag
+    type: String
+  - name: name
+    type: String
+  - name: first_name
+    type: String
+  - name: last_name
+    type: String
+  - name: profile_url
+    type: String
+  - name: avatar_url
+    type: String
+  - name: hero_image_url
+    type: String
+  - name: personal_message
+    type: String
+  - name: biography
+    type: String
+  - name: currency
+    type: String
+  - name: donation_count
+    type: Integer
+  - name: donated_amount
+    type: Integer
+  - name: followers_count
+    type: Integer
+  - name: following_count
+    type: Integer
+  - name: last_donated_at
+    type: DateTime
+  - name: created_at
+    type: DateTime
+  - name: email
+    type: String
+  - name: sex
+    type: String
+  - name: location
+    type: String
+  - name: date_of_birth
+    type: String
+
+example_response:
+  curl:
+    user:
+    - id: 1
+      givey_tag: userone
+      name: User One
+      first_name: User
+      last_name: One
+      profile_url: https://www.givey.com/userone
+      avatar_url:
+      hero_image_url:
+      personal_message: null
+      biography: My name is user one
+      currency: GBP
+      donation_count: 2
+      donated_amount: 2000
+      followers_count: 1
+      following_count: 10
+      last_donated_at: 2016-02-25T17:15:12.577Z
+      created_at: 2014-08-20T19:11:30.902Z
+      email: user@example.com
+      sex: male
+      location: Thin air
+      date_of_birth: 01/01/1970
+
+actions:
   - operationId: filterUsers
-    summary: Filter Users
+    summary: Get Users
     method: GET
     path: /users
     parameters:
@@ -22,7 +91,7 @@ actions:
       description: ID of a Business
 
   - operationId: getUser
-    summary: Get a User
+    summary: Get User
     method: GET
     path: /users/:id
     parameters:
@@ -31,7 +100,7 @@ actions:
       description: ID of a User
 
   - operationId: createUser
-    summary: Create a User
+    summary: Create User
     method: POST
     path: /users
     parameters:
@@ -56,7 +125,7 @@ actions:
       description: User's last name
 
   - operationId: updateUser
-    summary: Update a User
+    summary: Update User
     method: PUT
     path: /users/:id
     parameters:

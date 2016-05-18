@@ -1,6 +1,33 @@
 name: Search
-actions:
 
+breakdown:
+  - name: id
+    type: Integer
+  - name: name
+    description: The name of the entity
+    type: String
+  - name: givey_taggable_id
+    type: String
+  - name: givey_taggable_type
+    type: String
+  - name: avatar
+    type: String
+  - name: description
+    type: String
+  - name: created_at
+    type: String
+
+example_response:
+  curl:
+    search:
+    - id: 1
+      name: userone
+      givey_taggable_id: 1
+      givey_taggable_type: User
+      description: Welcome to my page
+      created_at: 2016-03-03T15:15:44.104Z
+
+actions:
   - operationId: getSearch
     summary: Search entities
     method: GET
@@ -9,6 +36,7 @@ actions:
     - name: q
       type: string
       description: The search query
+      required: true
     - name: only
       type: array
       description: Limit to search to specific entities

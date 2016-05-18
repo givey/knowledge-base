@@ -1,8 +1,39 @@
 name: Follows
-actions:
 
+breakdown:
+  - name: id
+    description: The ID of the object
+    type: Integer
+  - name: follower_id
+    description: 'The ID of the user, business or charity'
+    type: Integer
+  - name: follower_type
+    description: The type of the follower
+    type: String
+  - name: followee_id
+    description: 'The ID of the user, business or charity'
+    type: Integer
+  - name: followee_type
+    description: The type of the followee
+    type: String
+
+example_response:
+  curl:
+    meta:
+      limit: 10
+      count: 3
+      page: 1
+      pages: 1
+    follows:
+    - id: 1
+      follower_id: 1
+      follower_type: User
+      followee_id: 2
+      followee_type: User
+
+actions:
   - operationId: readFollows
-    summary: 'Get the followers of a user, charity or business'
+    summary: Get Followers
     method: GET
     path: /follows
     parameters:
@@ -15,41 +46,9 @@ actions:
         $ curl -G \
         'https://api.givey.com/v3/follows' \
         -d givey_tag=userone
-    breakdown:
-      follows:
-      - name: id
-        description: The ID of the object
-        type: Integer
-      - name: follower_id
-        description: 'The ID of the user, business or charity'
-        type: Integer
-      - name: follower_type
-        description: The type of the follower
-        type: String
-      - name: followee_id
-        description: 'The ID of the user, business or charity'
-        type: Integer
-      - name: followee_type
-        description: The type of the followee
-        type: String
-    responses:
-      200:
-        examples:
-          "application/json":
-            meta:
-              limit: 10
-              count: 3
-              page: 1
-              pages: 1
-            follows:
-            - id: 1
-              follower_id: 1
-              follower_type: User
-              followee_id: 2
-              followee_type: User
 
-  - operationId: readFollowers
-    summary: 'Get the users, businesses or charities an user, business or charity is following'
+  - operationId: readFollowing
+    summary: Get Following
     method: GET
     path: /follows/:id
     parameters:
@@ -61,53 +60,30 @@ actions:
       curl: |+
         $ curl \
         'https://api.givey.com/v3/follows/userone'
-    breakdown:
-      follows:
-      - name: id
-        description: The ID of the object
-        type: Integer
-      - name: follower_id
-        description: 'The ID of the user, business or charity'
-        type: Integer
-      - name: follower_type
-        description: The type of the follower
-        type: String
-      - name: followee_id
-        description: 'The ID of the user, business or charity'
-        type: Integer
-      - name: followee_type
-        description: The type of the followee
-        type: String
-    responses:
-      200:
-        examples:
-          "application/json":
-            meta:
-              limit: 10
-              count: 3
-              page: 1
-              pages: 1
-            follows:
-            - id: 1
-              follower_id: 1
-              follower_type: User
-              followee_id: 2
-              followee_type: User
 
   - operationId: createFollow
-    summary: Create a follow for an entity
+    summary: Create Follow
     method: POST
     path: /follows
     parameters:
     - name: givey_tag
       type: string
       description: 'GiveyTag of an entity (user, business, charity)'
+    requests:
+      curl: |+
+        $ curl \
+        'https://api.givey.com/v3/follows/userone' \
+        -d givey_tag=usertwo
 
   - operationId: destroyFollow
-    summary: Destroy a follow of an entity
+    summary: Delete Follow
     method: DELETE
     path: /follows/:id
     parameters:
     - name: id
       type: string
       description: 'GiveyTag of an entity (user, business, charity)'
+    requests:
+      curl: |+
+        $ curl -X DELETE \
+        'https://api.givey.com/v3/follows/usertwo'
