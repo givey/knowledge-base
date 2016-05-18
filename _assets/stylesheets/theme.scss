@@ -1,6 +1,14 @@
 $logo-size: 48px;
 $grey: #666;
 
+h3 {
+  margin-bottom: 40px;
+}
+
+h4 {
+  margin-bottom: 20px;
+}
+
 .page-header {
   border-bottom: 1px solid darken($brand-primary, 20%);
   margin: 0 auto 30px auto;
@@ -55,6 +63,10 @@ $grey: #666;
   }
 }
 
+.panel {
+  margin: 0;
+}
+
 .navigation {
   background: #f2f2f2;
   border-top: 1px solid darken($brand-primary, 20%);
@@ -105,8 +117,31 @@ $grey: #666;
   }
 }
 
+
+.body {
+  position: fixed;
+  top: 0;
+  left: 240px;
+  bottom: 0;
+  right: 0;
+  overflow: scroll;
+}
+
+.logo-wrapper {
+  width: 220px;
+}
+
 .sidebar {
+  width: 220px;
+  position: absolute;
+  top: 51px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: scroll;
+
   .panel > .nav-stacked {
+
     &, a {
       color: #333;
     }
@@ -118,6 +153,7 @@ $grey: #666;
     }
 
     .nav-stacked {
+
       &, a {
         color: $grey;
       }
@@ -126,6 +162,10 @@ $grey: #666;
       font-family: monospace;
     }
   }
+}
+
+.nav-stacked > li + li {
+  margin: 0;
 }
 
 li > a {
@@ -158,8 +198,12 @@ li > a {
   display: flex;
 }
 
-.response-example {
+.response-wrapper {
   background: #f7f7f7;
+}
+
+.response-example {
+  padding: 10px;
 }
 
 pre {
