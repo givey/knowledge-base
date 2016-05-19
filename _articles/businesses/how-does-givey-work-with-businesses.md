@@ -12,4 +12,4 @@ Givey provides a paperless, time-saving, patented instant matching scheme to sup
 
 We are able to make Givey completely free for users and charities by charging businesses and corporates to use our instant matching engine for employees. This means that there are no registration fees, no monthly charges and no transaction costs for charities or users of Givey.
 
-Businesses can meaningfully support their employees with a donation boost every time they give to a charity. This takes out the admin for the company and really boosts brand reputation. Makes good sense, doesn’t it? We really think so. If you’d like to find out a bit more about Givey for Business, or want to refer your employer to us, please contact sales@givey.com or 02036370792.
+Businesses can meaningfully support their employees with a donation boost every time they give to a charity. This takes out the admin for the company and really boosts brand reputation. Makes good sense, doesn’t it? We really think so. If you’d like to find out a bit more about Givey for Business, or want to refer your employer to us, please contact sales@givey.com.

@@ -4,7 +4,7 @@ rank: 278
 created_at: 2015-07-23 13:59:06.002687000 Z
 updated_at: 2015-07-23 13:59:10.039874000 Z
 category: projects
-title: How long will it take to launch a project?
+title: How long will it take to setup a project?
 layout: article
 permalink: "/articles/projects/how-long-will-it-take-to-launch-a-project/"
 ---
