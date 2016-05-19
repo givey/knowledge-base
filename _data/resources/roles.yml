@@ -1,0 +1,44 @@
+name: Roles
+
+breakdown:
+  - name: id
+    type: Integer
+  - name: givey_taggable_id
+    type: Integer
+  - name: givey_taggable_type
+    type: String
+  - name: user_id
+    type: Integer
+  - name: grant_type
+    type: String
+    description: One of Owner/Admin/Member
+  - name: confirmed
+    type: Boolean
+  - name: created_at
+    type: DateTime
+
+example_response:
+  curl:
+    roles:
+    - id: 1
+      givey_taggable_id: 1
+      givey_taggable_type: Charity
+      user_id: 1
+      grant_type: owner
+      confirmed: true
+      created_at: 2016-05-16T14:44:22.860Z
+
+actions:
+  - operationId: getRoles
+    summary: Get Roles
+    method: GET
+    path: /roles
+    parameters:
+    - name: user_id
+      type: string
+    requests:
+      curl: |+
+        $ curl -G \
+        'https://api.givey.com/v3/roles' \
+        -d user_id=1
+
