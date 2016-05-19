@@ -26,22 +26,28 @@ breakdown:
   - name: donation_count
     type: Integer
   - name: donated_amount
+    description: Only available if the access token used belongs to the user
     type: Integer
   - name: followers_count
     type: Integer
   - name: following_count
     type: Integer
   - name: last_donated_at
+    description: Only available if the access token used belongs to the user
     type: DateTime
   - name: created_at
     type: DateTime
   - name: email
+    description: Only available if the access token used belongs to the user
     type: String
   - name: sex
+    description: Only available if the access token used belongs to the user
     type: String
   - name: location
+    description: Only available if the access token used belongs to the user
     type: String
   - name: date_of_birth
+    description: Only available if the access token used belongs to the user
     type: String
 
 example_response:
@@ -53,9 +59,8 @@ example_response:
       first_name: User
       last_name: One
       profile_url: https://www.givey.com/userone
-      avatar_url:
-      hero_image_url:
-      personal_message: null
+      avatar_url: https://www.example.com
+      hero_image_url: https://www.example.com
       biography: My name is user one
       currency: GBP
       donation_count: 2
@@ -66,7 +71,7 @@ example_response:
       created_at: 2014-08-20T19:11:30.902Z
       email: user@example.com
       sex: male
-      location: Thin air
+      location: Givey
       date_of_birth: 01/01/1970
 
 actions:
@@ -89,6 +94,10 @@ actions:
       in: query
       type: string
       description: ID of a Business
+    requests:
+      curl: |+
+        $ curl \
+        'https://api.givey.com/v3/users'
 
   - operationId: getUser
     summary: Get User
@@ -98,6 +107,10 @@ actions:
     - name: id
       type: string
       description: ID of a User
+    requests:
+      curl: |+
+        $ curl \
+        'https://api.givey.com/v3/users/userone'
 
   - operationId: createUser
     summary: Create User
@@ -123,6 +136,15 @@ actions:
     - name: last_name
       type: string
       description: User's last name
+    requests:
+      curl: |+
+        $ curl \
+        'https://api.givey.com/v3/users' \
+        -d givey_tag=userone \
+        -d email=userone@example.com \
+        -d secondary_email=user@example.com \
+        -d first_name=user \
+        -d last_name=one
 
   - operationId: updateUser
     summary: Update User
@@ -168,15 +190,29 @@ actions:
     - name: biography
       type: string
       description: User's biography
-    - name: unconfirmed_contact_phone
+    - name: contact_phone
       type: string
       description: User's contact phone
-    - name: sms_country_code
-      type: string
-      description: User's country code
     - name: sex
       type: string
       description: User's sex
     - name: date_of_birth
       type: string
       description: User's date of birth
+
+    requests:
+      curl: |+
+        $ curl \
+        'https://api.givey.com/v3/users/userone' \
+        -d givey_tag=userone \
+        -d email=userone@example.com \
+        -d secondary_email=user@example.com \
+        -d remote_avatar_url=https://www.example.com \
+        -d remove_hero_image=true \
+        -d first_name=user \
+        -d last_name=one \
+        -d location=Givey \
+        -d biography='I am user one' \
+        -d contact_phone=123456 \
+        -d sex=male \
+        -d date_of_birth=1/1/1970

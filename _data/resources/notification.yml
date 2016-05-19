@@ -1,11 +1,6 @@
 name: Notifications
 
 breakdown:
-  meta:
-    name: total
-    description: The object that encapsulates the notification counts
-    type: Object
-  notifications:
   - name: id
     type: Integer
   - name: author
@@ -38,7 +33,7 @@ example_response:
         avatar_url: https://res.cloudinary.com/givey/image/upload/default_user.png
       link: https://www.givey.com
       content_text: User one has made a donation to your fundraiser
-      html: <li class='notification' data-id='1'>\n<div class='row'>\n<div class='col-xs-2'>\n<div class='avatar-padder'>\n<div class=\"avatar avatar-tiny\"><a href=\"/userone\"><img class=\"avatars-userone\" width=\"32\" height=\"32\" src=\"https://res.cloudinary.com/givey/image/upload/h_32,w_32/default_user.png\" alt=\"Default user\" title=\"Default user\" /></a></div>\n</div>\n</div>\n<div class='col-xs-8'>\n<a href=\"/notifications/38858/mark_read\">User One has made a donation to your fundraiser\n</a></div>\n<div class='col-xs-2 text-center'>\n<div class='notification-date'>\n<date title=\"March 03, 2016 15:15\">3mo</date>\n</div>\n</div>\n</div>\n</li>\n
+      html: <li class='notification' data-id='1'><div class='row'><div class='col-xs-2'><div class='avatar-padder'><div class="avatar avatar-tiny"><a href="/userone"><img class="avatars-userone" width="32" height="32" src="https://res.cloudinary.com/givey/image/upload/h_32,w_32/default_user.png" alt="Default user" title="Default user" /></a></div></div></div><div class='col-xs-8'><a href="/notifications/38858/mark_read">User One has made a donation to your fundraiser</a></div><div class='col-xs-2 text-center'><div class='notification-date'><date title="March 03, 2016 15:15">3mo</date></div></div></div></li>
       created_at: 2016-03-03T15:15:44.104Z
 
 actions:
@@ -46,3 +41,7 @@ actions:
     summary: Get Notifications
     method: GET
     path: /notifications
+    requests:
+      curl: |+
+        $ curl \
+        https://api.givey.com/v3/notifications

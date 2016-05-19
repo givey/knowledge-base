@@ -12,11 +12,16 @@ breakdown:
 
 example_response:
   curl:
-    search:
+    stories:
     - id: 1
       content_text: Well done user one!
       user_id: 2
       donation_id: 1
+    meta:
+      limit: 10
+      count: 1
+      page: 1
+      pages: 1
 
 actions:
   - operationId: getStories
@@ -27,6 +32,11 @@ actions:
     - name: donation_id
       type: string
       description: The ID of a donation
+    requests:
+      curl: |+
+        $ curl -G \
+        'https://api.givey.com/v3/stories' \
+        -d donation_id=1234
 
   - operationId: getStory
     summary: Get Story
@@ -36,18 +46,25 @@ actions:
     - name: id
       type: string
       description: The ID of a story
+    requests:
+      curl: |+
+        $ curl -G \
+        'https://api.givey.com/v3/stories/1234'
 
   - operationId: createStory
     summary: Create Story
     method: POST
     path: /stories
     parameters:
-    - name: 'story[user_id]'
-      type: string
-      description: The ID of a user
-    - name: 'story[donation_id]'
+    - name: donation_id
       type: string
       description: The ID of a donation
-    - name: 'story[content_text]'
+    - name: content_text
       type: string
       description: The main body of the story
+    requests:
+      curl: |+
+        $ curl \
+        'https://api.givey.com/v3/stories' \
+        -d story[donation_id]=2 \
+        -d story[content_text]='Well done user one!' \
