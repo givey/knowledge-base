@@ -124,6 +124,11 @@ actions:
       type: string
       description: GiveyTag or ID of a User
       optional: true
+    - name: project_id
+      in: query
+      type: string
+      description: GiveyTag or ID of a Project
+      optional: true
     requests:
       curl: |+
         $ curl -G \
