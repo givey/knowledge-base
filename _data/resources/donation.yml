@@ -154,27 +154,26 @@ actions:
     method: POST
     path: /donations
     parameters:
-    - name: "donation[payment][amount]"
+    - name: "payment[amount]"
       type: integer
       description: The amount of the donation
-    - name: "donation[charity][id]"
+    - name: "charity[id]"
       type: string
       description: The ID or Givey Tag of a charity
-    - name: "donation[story][comment]"
-      type: string
-      optional: true
-      description: The comment body of the donation
-    - name: "donation[content][id]"
+    - name: "content[id]"
       type: string
       description: The ID or Unique slug of a piece of content
-    - name: "donation[title]"
+    - name: "content[title]"
       type: string
       description: The title of the donation
-    - name: "donation[share][inspired_by]"
+    - name: "content[description]"
+      type: string
+      description: The description of the donation
+    - name: "inspired_by"
       type: integer
       description: The ID of a donation
       optional: true
-    - name: "donation[share][tags]"
+    - name: "content[tags]"
       type: array/string
       description: An array or comma seperated list of string tags
       optional: true
@@ -185,4 +184,5 @@ actions:
         -d donation[payment][amount]=1 \
         -d donation[charity][id]=dogstrust \
         -d donation[content][id]=59d118ab \
-        -d donation[title]=Cosy%20Watson
+        -d donation[content][title]=Cosy%20Watson \
+        -d donation[content][description]=Some%20Description
