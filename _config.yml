@@ -10,7 +10,7 @@ collections:
 gostatic:
   build:
     command:
-    - rake assets:precompile
+    - bundle exec rake assets:precompile
     - bundle exec jekyll build --trace --destination $SITE_DIR --config=_config.production.yml
 
 exclude:
