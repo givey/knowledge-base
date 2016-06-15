@@ -8,4 +8,7 @@ title: Do I need to signup to donate?
 layout: article
 permalink: "/articles/giving/im-trying-to-donate-do-i-need-to-sign-up-with-givey/"
 ---
-Yes - we require users to be logged in to donate. Yon can login with 'one-click' using Facebook, Twitter, Google or Instagram. We respect our user's privacy and well never share your personal information with anyone.
+No - You don't need to signup in order to donate. 
+<p>
+We do offer single sign on using Facebook, Twitter, Google or Instagram so if you want to signup you don't have to remember new passwords. We respect our user's privacy and well never share your personal information with anyone.
+</p>

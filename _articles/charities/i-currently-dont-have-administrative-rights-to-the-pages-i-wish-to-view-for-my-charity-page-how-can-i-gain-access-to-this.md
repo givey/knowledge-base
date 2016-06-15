@@ -4,8 +4,7 @@ rank: 197
 created_at: 2015-01-13 15:37:33.420818000 Z
 updated_at: 2015-07-14 15:49:49.533679000 Z
 category: charities
-title: I currently don’t have administrative rights to the pages I wish to view for
-  my Charity page; how can I gain access to this?
+title: How do I get access to our charity page?
 layout: article
 permalink: "/articles/charities/i-currently-dont-have-administrative-rights-to-the-pages-i-wish-to-view-for-my-charity-page-how-can-i-gain-access-to-this/"
 ---
