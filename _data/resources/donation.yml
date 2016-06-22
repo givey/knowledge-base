@@ -177,6 +177,12 @@ actions:
       type: array/string
       description: An array or comma seperated list of string tags
       optional: true
+    - name: "giftaid[enabled]"
+      type: boolean
+      description: Should Gift Aid be attached to this donation?
+    - name: "giftaid[address]"
+      type: Address
+      description: "The address used for Gift Aid (required if giftaid[enabled] is true)"
     requests:
       curl: |+
         $ curl \
@@ -185,4 +191,12 @@ actions:
         -d donation[charity][id]=dogstrust \
         -d donation[content][id]=59d118ab \
         -d donation[content][title]=Cosy%20Watson \
-        -d donation[content][description]=Some%20Description
+        -d donation[content][description]=Some%20Description \
+        -d donation[giftaid][enabled]=true \
+        -d donation[giftaid][address][address1]=Givey \
+        -d donation[giftaid][address][address2]=Road \
+        -d donation[giftaid][address][city]=Givey \
+        -d donation[giftaid][address][county]=Givey \
+        -d donation[giftaid][address][country]=United%20Kingdom \
+        -d donation[giftaid][address][post_code]=GIV3EY \
+        -d donation[giftaid][address][phone_number]=00000000000
