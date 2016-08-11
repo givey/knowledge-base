@@ -6,6 +6,10 @@ charities:
   name: Charity
   description: Everything a Charity needs to know to get started
 
+fundraisers:
+  name: Fundraisers
+  description: Help with using and setting up fundraising pages
+
 projects:
   name: Projects
   description: Everything a Project needs to know to get started
