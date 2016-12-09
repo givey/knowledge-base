@@ -8,4 +8,4 @@ title: Can I setup recurring donations for a charity?
 layout: article
 permalink: "/articles/giving/can-i-create-a-monthly-direct-debit-for-a-particular-charity-i-support/"
 ---
-We are working on this feature and it will be live very soon - keep and eye out in your settings page. 
+Yes - you have the option to make your donation recur on a specific date each month. For more information <a href="https://blog.givey.com/2016/12/09/recurring-donations/">read our blog post here</a>
