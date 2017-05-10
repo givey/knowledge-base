@@ -8,4 +8,4 @@ title: Is there a Givey app?
 layout: article
 permalink: "/articles/general/is-there-a-givey-app/"
 ---
-We are currently working on an app, and will update you with the details as to when this is up and running. Givey is however mobile enabled, so can be accessed on all mobile devices.
+Yes, Givey is available on Android and iOS and can be downloaded from these platforms respective stores. 
